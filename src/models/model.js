@@ -4,7 +4,7 @@ const database = {
     host: 'localhost',
     user: 'root',
     password: 'root',
-    database: 'smarthome'
+    database: 'ECM'
 }
 
 // const database = {

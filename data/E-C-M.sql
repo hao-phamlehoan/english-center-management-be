@@ -2,6 +2,9 @@ create database ECM;
 use ECM;
 
 DROP TABLE IF EXISTS User;
+DROP TABLE IF EXISTS Admin;
+DROP TABLE IF EXISTS Manager;
+DROP TABLE IF EXISTS Teacher;
 CREATE TABLE User(
 	ID                  CHAR(6) primary key,
     SSN                 VARCHAR(12) NOT NULL unique,
@@ -14,17 +17,14 @@ CREATE TABLE User(
     Username            VARCHAR(50) NOT NULL unique,
     Pass                VARCHAR(50) NOT NULL
 );
-DROP TABLE IF EXISTS Admin;
 CREATE TABLE Admin(
 	AID                  CHAR(6) primary key,
     FOREIGN KEY (AID) REFERENCES User (ID) ON DELETE CASCADE ON UPDATE CASCADE
 );
-DROP TABLE IF EXISTS Manager;
 CREATE TABLE Manager(
 	MID                  CHAR(6) primary key,
     FOREIGN KEY (MID) REFERENCES User (ID) ON DELETE CASCADE ON UPDATE CASCADE
 );
-DROP TABLE IF EXISTS Teacher;
 CREATE TABLE Teacher(
 	TID                  CHAR(6) primary key,
     FOREIGN KEY (TID) REFERENCES User (ID) ON DELETE CASCADE ON UPDATE CASCADE
@@ -60,8 +60,8 @@ create table Buoi_hoc(
     TID					CHAR(6),
     MID					CHAR(6),
     Ngay				Date,
-    tiet_bat_dau		int check(tiet_bat_dau > 1 & tiet_bat_dau < 12),
-    so_tiet				int check(so_tiet > 0 & so_tiet < 4),
+    tiet_bat_dau		int check(tiet_bat_dau > 1 and tiet_bat_dau < 12),
+    so_tiet				int check(so_tiet > 0 and so_tiet < 4),
     note				varchar(300),
     ID_bu				CHAR(6),
     FOREIGN KEY (CID) REFERENCES Class (CID) ON DELETE CASCADE ON UPDATE CASCADE,
