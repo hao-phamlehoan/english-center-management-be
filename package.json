@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hao-phamlehoan/smart-home-be.git"
+    "url": "git+https://github.com/hao-phamlehoan/english-center-management-be.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/hao-phamlehoan/smart-home-be/issues"
+    "url": "https://github.com/hao-phamlehoan/english-center-management-be/issues"
   },
-  "homepage": "https://github.com/hao-phamlehoan/smart-home-be#readme",
+  "homepage": "https://github.com/hao-phamlehoan/english-center-management-be#readme",
   "dependencies": {
     "axios": "^1.3.4",
     "body-parser": "^1.20.2",
