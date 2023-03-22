@@ -1,7 +1,7 @@
 {
-  "name": "smart-home-be",
+  "name": "english-center-management-be",
   "version": "1.0.0",
-  "description": "smart home",
+  "description": "english-center-management-be",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
