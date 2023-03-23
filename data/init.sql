@@ -1,35 +1,35 @@
 use ecm;
 
-INSERT INTO user VALUES 
+INSERT INTO User VALUES 
 ('111111', '064202010111', 'a1@gmai.com', '0339637721', 'Nguyen Van A', 'M', '2002-01-01', 'Ktx khu A', '111111', 'abc001');
-INSERT INTO user VALUES
-('111112', '064202010112', 'a1@gmai.com', '0339637721', 'Nguyen Van B', 'M', '2002-01-01', 'Ktx khu A', '111112', 'abc001');
-INSERT INTO user VALUES 
-('111113', '064202010113', 'a1@gmai.com', '0339637721', 'Nguyen Van C', 'M', '2002-01-01', 'Ktx khu A', '111113', 'abc001');
-INSERT INTO user VALUES
-('111114', '064202010114', 'a1@gmai.com', '0339637721', 'Nguyen Van D', 'M', '2002-01-01', 'Ktx khu A', '111114', 'abc001');
-INSERT INTO user VALUES 
-('111115', '064202010115', 'a1@gmai.com', '0339637721', 'Nguyen Van E', 'M', '2002-01-01', 'Ktx khu A', '111115', 'abc001');
-INSERT INTO user VALUES 
-('111116', '064202010116', 'a1@gmai.com', '0339637721', 'Le Thi A', 'F', '2002-01-01', 'Ktx khu A', '111116', 'abc001');
-INSERT INTO user VALUES
-('111117', '064202010117', 'a1@gmai.com', '0339637721', 'Le Thi B', 'F', '2002-01-01', 'Ktx khu A', '111117', 'abc001');
-INSERT INTO user VALUES 
-('111118', '064202010118', 'a1@gmai.com', '0339637721', 'Le Thi C', 'F', '2002-01-01', 'Ktx khu A', '111118', 'abc001');
-INSERT INTO user VALUES
-('111119', '064202010119', 'a1@gmai.com', '0339637721', 'Le Thi D', 'F', '2002-01-01', 'Ktx khu A', '111119', 'abc001');
-INSERT INTO user VALUES 
-('111120', '064202010120', 'a1@gmai.com', '0339637721', 'Le Thi E', 'F', '2002-01-01', 'Ktx khu A', '111120', 'abc001');
-INSERT INTO user VALUES 
-('111121', '064202010121', 'a1@gmai.com', '0339637721', 'Tran Van A', 'M', '2002-01-01', 'Ktx khu A', '111121', 'abc001');
-INSERT INTO user VALUES
-('111122', '064202010122', 'a1@gmai.com', '0339637721', 'Tran Van B', 'M', '2002-01-01', 'Ktx khu A', '111122', 'abc001');
-INSERT INTO user VALUES 
-('111123', '064202010123', 'a1@gmai.com', '0339637721', 'Tran Van C', 'M', '2002-01-01', 'Ktx khu A', '111123', 'abc001');
-INSERT INTO user VALUES
-('111124', '064202010124', 'a1@gmai.com', '0339637721', 'Tran Van D', 'M', '2002-01-01', 'Ktx khu A', '111124', 'abc001');
-INSERT INTO user VALUES 
-('111125', '064202010125', 'a1@gmai.com', '0339637721', 'Tran Van E', 'M', '2002-01-01', 'Ktx khu A', '111125', 'abc001');
+INSERT INTO User VALUES
+('111112', '064202010112', 'a2@gmai.com', '0339237721', 'Nguyen Van B', 'M', '2002-01-01', 'Ktx khu A', '111112', 'abc001');
+INSERT INTO User VALUES 
+('111113', '064202010113', 'a3@gmai.com', '0339677721', 'Nguyen Van C', 'M', '2002-01-01', 'Ktx khu A', '111113', 'abc001');
+INSERT INTO User VALUES
+('111114', '064202010114', 'a4@gmai.com', '0339657721', 'Nguyen Van D', 'M', '2002-01-01', 'Ktx khu A', '111114', 'abc001');
+INSERT INTO User VALUES 
+('111115', '064202010115', 'a5@gmai.com', '0339637771', 'Nguyen Van E', 'M', '2002-01-01', 'Ktx khu A', '111115', 'abc001');
+INSERT INTO User VALUES 
+('111116', '064202010116', 'a6@gmai.com', '0339637781', 'Le Thi A', 'F', '2002-01-01', 'Ktx khu A', '111116', 'abc001');
+INSERT INTO User VALUES
+('111117', '064202010117', 'a7@gmai.com', '0339637791', 'Le Thi B', 'F', '2002-01-01', 'Ktx khu A', '111117', 'abc001');
+INSERT INTO User VALUES 
+('111118', '064202010118', 'a8@gmai.com', '0339637701', 'Le Thi C', 'F', '2002-01-01', 'Ktx khu A', '111118', 'abc001');
+INSERT INTO User VALUES
+('111119', '064202010119', 'a9@gmai.com', '0339631121', 'Le Thi D', 'F', '2002-01-01', 'Ktx khu A', '111119', 'abc001');
+INSERT INTO User VALUES 
+('111120', '064202010120', 'a10@gmai.com', '0339612721', 'Le Thi E', 'F', '2002-01-01', 'Ktx khu A', '111120', 'abc001');
+INSERT INTO User VALUES 
+('111121', '064202010121', 'a11@gmai.com', '0339123721', 'Tran Van A', 'M', '2002-01-01', 'Ktx khu A', '111121', 'abc001');
+INSERT INTO User VALUES
+('111122', '064202010122', 'a12@gmai.com', '0339667721', 'Tran Van B', 'M', '2002-01-01', 'Ktx khu A', '111122', 'abc001');
+INSERT INTO User VALUES 
+('111123', '064202010123', 'a13@gmai.com', '0339638761', 'Tran Van C', 'M', '2002-01-01', 'Ktx khu A', '111123', 'abc001');
+INSERT INTO User VALUES
+('111124', '064202010124', 'a15@gmai.com', '0339637123', 'Tran Van D', 'M', '2002-01-01', 'Ktx khu A', '111124', 'abc001');
+INSERT INTO User VALUES 
+('111125', '064202010125', 'a16@gmai.com', '0339637729', 'Tran Van E', 'M', '2002-01-01', 'Ktx khu A', '111125', 'abc001');
 
 insert into Admin values ('111111');
 insert into Admin values ('111112');
@@ -75,14 +75,14 @@ insert into Buoi_hoc values ('500004', '311112', '400004', '111122', '111117', '
 insert into Buoi_hoc values ('500005', '311112', '400005', '111122', '111117', '2023-03-24', '8', '2', 'none', '500001');
 insert into Buoi_hoc values ('500006', '311112', '400006', '111122', '111117', '2023-03-27', '8', '2', 'none', '500001');
 
-insert into Thuoc values ('311111', '211111');
-insert into Thuoc values ('311111', '211112');
-insert into Thuoc values ('311111', '211113');
-insert into Thuoc values ('311111', '211114');
-insert into Thuoc values ('311111', '211115');
-insert into Thuoc values ('311112', '211111');
-insert into Thuoc values ('311112', '211112');
-insert into Thuoc values ('311112', '211113');
-insert into Thuoc values ('311112', '211114');
-insert into Thuoc values ('311112', '211115');
+insert into thuoc values ('311111', '211111');
+insert into thuoc values ('311111', '211112');
+insert into thuoc values ('311111', '211113');
+insert into thuoc values ('311111', '211114');
+insert into thuoc values ('311111', '211115');
+insert into thuoc values ('311112', '211111');
+insert into thuoc values ('311112', '211112');
+insert into thuoc values ('311112', '211113');
+insert into thuoc values ('311112', '211114');
+insert into thuoc values ('311112', '211115');
 
