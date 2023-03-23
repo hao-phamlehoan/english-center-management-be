@@ -18,7 +18,7 @@ class Student extends Model {
 
   getStudentInClass(id, callback) {
     this.query(
-      'SELECT * FROM thuoc t, Student S WHERE t.CID = ? AND S.ID = t.SID',
+      'SELECT * FROM thuoc t, Class C WHERE t.SID = ? AND C.CID = t.CID',
       [id]
     )
       .then(results => {

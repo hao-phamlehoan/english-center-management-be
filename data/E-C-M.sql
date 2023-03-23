@@ -29,6 +29,7 @@ CREATE TABLE Teacher(
 	TID                  CHAR(6) primary key,
     FOREIGN KEY (TID) REFERENCES User (ID) ON DELETE CASCADE ON UPDATE CASCADE
 );
+-----------------------------------------
 create table Student(
 	ID                  CHAR(6) primary key,
     Email               VARCHAR(50),
@@ -38,6 +39,7 @@ create table Student(
     Bdate				DATE,
     Address				varchar(50)
 );
+-----------------------------------------
 create table Class(
 	CID                 CHAR(6) primary key,
     So_buoi				INT check(So_buoi > 0),
@@ -49,10 +51,12 @@ create table Class(
     TID			CHAR(6) not null,
     FOREIGN KEY (TID) REFERENCES Teacher (TID) ON DELETE CASCADE ON UPDATE CASCADE
 );
+-----------------------------------------
 create table Room(
 	RID                 CHAR(6) primary key,
     Name				varchar(10)
 );
+-----------------------------------------
 create table Buoi_hoc(
 	ID                 	CHAR(6) primary key,
     CID					CHAR(6) not null,
@@ -70,9 +74,10 @@ create table Buoi_hoc(
     FOREIGN KEY (MID) REFERENCES Manager (MID) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (ID_bu) REFERENCES Buoi_hoc (ID) ON DELETE CASCADE ON UPDATE CASCADE
 );
+-----------------------------------------
 create table thuoc(
 	CID					CHAR(6),
-    SID					CHAR(6),
+    SInpmD					CHAR(6),
     CONSTRAINT thuoc_pk PRIMARY KEY (CID, SID),
     FOREIGN KEY (CID) REFERENCES Class (CID) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (SID) REFERENCES Student (ID) ON DELETE CASCADE ON UPDATE CASCADE
