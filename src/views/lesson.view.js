@@ -1,11 +1,11 @@
-class ClassView {
-  getAll(res, classes) {
-    if (classes) {
+class LessonView {
+  getAll(res, lessons) {
+    if (lessons) {
       res.status(200).json({
         result: 'success',
-        message: 'get all classes',
-        size: classes.length,
-        classes: classes
+        message: 'get all lessons',
+        size: lessons.length,
+        lessons: lessons
       })
     }
     else {
@@ -13,36 +13,17 @@ class ClassView {
         result: 'fail',
         message: 'wrong',
         size: null,
-        classes: null
+        lessons: null
       })
     }
   }
 
-  getClassInClass(res, status, classes) {
-    if (classes) {
+  get(res, status, Lesson) {
+    if (Lesson) {
       res.status(status).json({
         result: 'success',
-        message: 'get all class in class',
-        size: classes.length,
-        classes: classes
-      })
-    }
-    else {
-      res.status(status).json({
-        result: 'fail',
-        message: 'wrong',
-        size: null,
-        classes: null
-      })
-    }
-  }
-
-  get(res, status, Class) {
-    if (Class) {
-      res.status(status).json({
-        result: 'success',
-        message: 'get Class by id',
-        Class: Class
+        message: 'get Lesson by id',
+        Lesson: Lesson
       })
     }
     else {
@@ -53,19 +34,19 @@ class ClassView {
     }
   }
 
-  update(res, status, result, message) {
-    res.status(status).json({
-      result: result ? 'success' : 'fail',
-      message
-    })
-  }
+  // update(res, status, result, message) {
+  //   res.status(status).json({
+  //     result: result ? 'success' : 'fail',
+  //     message
+  //   })
+  // }
 
-  create(res, status, result, message) {
-    res.status(status).json({
-      result: result ? 'success' : 'fail',
-      message,
-    })
-  }
+  // create(res, status, result, message) {
+  //   res.status(status).json({
+  //     result: result ? 'success' : 'fail',
+  //     message,
+  //   })
+  // }
 
   delete(res, status, result, message) {
     res.status(status).json({
@@ -75,4 +56,4 @@ class ClassView {
   }
 }
 
-module.exports = ClassView
+module.exports = LessonView

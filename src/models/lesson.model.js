@@ -1,13 +1,13 @@
 const Model = require('./model')
 
-class Class extends Model {
+class Lesson extends Model {
   constructor() {
     super()
   }
 
   getAll(callback) {
     this.query(
-      'SELECT * FROM Class',
+      'SELECT * FROM Buoi_hoc',
     )
       .then(results => callback(results))
       .catch((error) => {
@@ -16,23 +16,9 @@ class Class extends Model {
       })
   }
 
-  getClassInClass(id, callback) {
-    this.query(
-      'SELECT * FROM thuoc t, Student S WHERE t.CID = ? AND S.ID = t.SID',
-      [id]
-    )
-      .then(results => {
-        if (results.length === 0)
-          callback(405, "size = 0")
-        else
-          callback(200, results)
-      })
-      .catch(() => callback(404, null))
-  }
-
   get(id, callback) {
     this.query(
-      'SELECT * FROM Class s WHERE s.CID = ?',
+      'SELECT * FROM Buoi_hoc s WHERE s.ID = ?',
       [id]
     )
       .then(results => {
@@ -44,71 +30,71 @@ class Class extends Model {
       .catch(() => callback(404, null))
   }
 
-  update(id, newClass, callback) {
-    this.query(
-      `SELECT * FROM Class WHERE CID = ?`,
-      [id]
-    )
-    .then(results => {
-      if (!id || results.length === 0)
-        throw Error('invalid id')
-      else {
-        let query = `UPDATE Class SET 
-                    CID= '${newClass.CID ? newClass.CID : results.CID}',
-                    So_buoi= ${newClass.So_buoi ? newClass.So_buoi : results.So_buoi},
-                    NumStudent= ${newClass.NumStudent ? newClass.NumStudent : results.NumStudent},
-                    DateS= '${newClass.DateS ? newClass.DateS : results.DateS}',
-                    DateE= '${newClass.DateE ? newClass.DateE : results.DateE}',
-                    CType= '${newClass.CType ? newClass.CType : results.CType}',
-                    TID= '${newClass.TID ? newClass.TID : results.TID}',
-                    Des= '${newClass.Des ? newClass.Des : results.Des}'
-                    WHERE CID = ${id}`
-        console.log(query)
-        this.query(query)
-          .then(() => {
-            callback(200, true, 'update success') 
-          })
-          .catch((error) => {
-            console.log(error)
-            callback(400, false, 'Something wrong happened, please try again')
-          })
-      }
-    })
-    .catch(error => {
-      console.log(error);
-      if (error.message === 'invalid id')
-        callback(404, false, error.message)
-      else
-        callback(400, false, 'Something wrong happened, please try again')
-    })
-  }
+  // update(id, newLesson, callback) {
+  //   this.query(
+  //     `SELECT * FROM Lesson WHERE CID = ?`,
+  //     [id]
+  //   )
+  //   .then(results => {
+  //     if (!id || results.length === 0)
+  //       throw Error('invalid id')
+  //     else {
+  //       let query = `UPDATE Lesson SET 
+  //                   CID= '${newLesson.CID ? newLesson.CID : results.CID}',
+  //                   So_buoi= ${newLesson.So_buoi ? newLesson.So_buoi : results.So_buoi},
+  //                   NumStudent= ${newLesson.NumStudent ? newLesson.NumStudent : results.NumStudent},
+  //                   DateS= '${newLesson.DateS ? newLesson.DateS : results.DateS}',
+  //                   DateE= '${newLesson.DateE ? newLesson.DateE : results.DateE}',
+  //                   CType= '${newLesson.CType ? newLesson.CType : results.CType}',
+  //                   TID= '${newLesson.TID ? newLesson.TID : results.TID}',
+  //                   Des= '${newLesson.Des ? newLesson.Des : results.Des}'
+  //                   WHERE CID = ${id}`
+  //       console.log(query)
+  //       this.query(query)
+  //         .then(() => {
+  //           callback(200, true, 'update success') 
+  //         })
+  //         .catch((error) => {
+  //           console.log(error)
+  //           callback(400, false, 'Something wrong happened, please try again')
+  //         })
+  //     }
+  //   })
+  //   .catch(error => {
+  //     console.log(error);
+  //     if (error.message === 'invalid id')
+  //       callback(404, false, error.message)
+  //     else
+  //       callback(400, false, 'Something wrong happened, please try again')
+  //   })
+  // }
 
-  create(newClass, callback) {
-      this.query(
-        'INSERT INTO Class SET ?',
-        {
-          CID: newClass.CID,
-          So_buoi: newClass.So_buoi,
-          NumStudent: newClass.NumStudent,
-          DateS: newClass.DateS,
-          DateE: newClass.DateE,
-          CType: newClass.CType,
-          TID: newClass.TID,
-          Des: newClass.Des
-        }
-      )
-      .then(() => callback(200, true, 'Create success'))
-      .catch((error) => {
-        if (error.includes('Duplicate entry'))
-          callback(400, false, 'Duplicate entry')
-        else
-          callback(400, false, 'something wrong happened, please try again')
-      })
-  }
+  // create(newLesson, callback) {
+  //     this.query(
+  //       'INSERT INTO Lesson SET ?',
+  //       {
+  //         CID: newLesson.CID,
+  //         So_buoi: newLesson.So_buoi,
+  //         NumStudent: newLesson.NumStudent,
+  //         DateS: newLesson.DateS,
+  //         DateE: newLesson.DateE,
+  //         CType: newLesson.CType,
+  //         TID: newLesson.TID,
+  //         Des: newLesson.Des
+  //       }
+  //     )
+  //     .then(() => callback(200, true, 'Create success'))
+  //     .catch((error) => {
+  //       if (error.includes('Duplicate entry'))
+  //         callback(400, false, 'Duplicate entry')
+  //       else
+  //         callback(400, false, 'something wrong happened, please try again')
+  //     })
+  // }
 
   delete(id, callback) {
     this.query(
-      `SELECT * FROM Class WHERE CID = ?`,
+      `SELECT * FROM Buoi_hoc WHERE ID = ?`,
       [id]
     )
       .then(results => {
@@ -116,7 +102,7 @@ class Class extends Model {
           throw Error('invalid id')
         else
           return this.query(
-            'DELETE FROM Class WHERE CID = ?',
+            'DELETE FROM Buoi_hoc WHERE ID = ?',
             [id],
           )
       })
@@ -133,4 +119,4 @@ class Class extends Model {
   }
 }
 
-module.exports = Class
+module.exports = Lesson

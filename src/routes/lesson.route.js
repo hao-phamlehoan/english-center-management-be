@@ -1,12 +1,11 @@
 const express = require('express')
 const router = express.Router()
-const roomController = require('../controllers/room.controller')
+const lessonController = require('../controllers/lesson.controller')
 
-router.get('/all', roomController.getAll)
-router.get('/:id', roomController.get)
-router.get('/student/:id', roomController.getClassInClass)
-router.delete('/:id', roomController.delete)
-router.post('/create', roomController.create)
-router.patch('/:id', roomController.update)
+router.get('/all', lessonController.getAll)
+router.get('/:id', lessonController.get)
+router.delete('/:id', lessonController.delete)
+// router.post('/create', lessonController.create)
+// router.patch('/:id', lessonController.update)
 
 module.exports = router

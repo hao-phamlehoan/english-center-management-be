@@ -1,53 +1,45 @@
-const ClassModel = require('../models/class.model')
-const ClassView = require('../views/class.view')
+const LessonModel = require('../models/lesson.model')
+const LessonView = require('../views/lesson.view')
 
-const classModel = new ClassModel()
-const classView = new ClassView()
+const lessonModel = new LessonModel()
+const lessonView = new LessonView()
 
-class ClassController {
+class LessonController {
     getAll(req, res) {
-        classModel.getAll((classs) => {
-            classView.getAll(res, classs)
-        })
-    }
-
-    getClassInClass(req, res) {
-        let id = Number.parseInt(req.params.id)
-        console.log(id)
-        classModel.getClassInClass(id, (status, classs) => {
-            classView.getClassInClass(res, status, classs)
+        lessonModel.getAll((lessons) => {
+            lessonView.getAll(res, lessons)
         })
     }
 
     get(req, res) {
         let id = Number.parseInt(req.params.id)
-        classModel.get(id, (status, Class) => {
-            classView.get(res, status, Class)
+        lessonModel.get(id, (status, Lesson) => {
+            lessonView.get(res, status, Lesson)
         })
     }
 
-    update(req, res) {
-        let id = Number.parseInt(req.params.id)
-        let editedClass = req.body
+    // update(req, res) {
+    //     let id = Number.parseInt(req.params.id)
+    //     let editedLesson = req.body
 
-        classModel.update(id, editedClass, (status, result, message) => {
-            classView.update(res, status, result, message)
-        })
-    }
+    //     lessonModel.update(id, editedLesson, (status, result, message) => {
+    //         lessonView.update(res, status, result, message)
+    //     })
+    // }
 
-    create(req, res) {
-        let newClass = req.body
-        classModel.create(newClass, (status, result, message) => {
-            classView.create(res, status, result, message)
-        })
-    }
+    // create(req, res) {
+    //     let newLesson = req.body
+    //     lessonModel.create(newLesson, (status, result, message) => {
+    //         lessonView.create(res, status, result, message)
+    //     })
+    // }
 
     delete(req, res) {
         let id = Number.parseInt(req.params.id)
-        classModel.delete(id, (status, result, message) => {
-            classView.delete(res, status, result, message)
+        lessonModel.delete(id, (status, result, message) => {
+            lessonView.delete(res, status, result, message)
         })
     }
 }
 
-module.exports = new ClassController
+module.exports = new LessonController
