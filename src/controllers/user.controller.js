@@ -11,6 +11,12 @@ class UserController {
         })
     }
 
+    getTeacher(req, res) {
+        userModel.getTeacher((users) => {
+            userView.getTeacher(res, users)
+        })
+    }
+
     get(req, res) {
         let id = Number.parseInt(req.params.id)
         userModel.get(id, (status, user) => {

@@ -18,6 +18,25 @@ class UserView {
     }
   }
 
+  getTeacher(res, users) {
+    if (users) {
+      res.status(200).json({
+        result: 'success',
+        message: 'get all user',
+        size: users.length,
+        users: users
+      })
+    }
+    else {
+      res.status(400).json({
+        result: 'fail',
+        message: 'wrong',
+        size: null,
+        users: null
+      })
+    }
+  }
+
   get(res, status, user) {
     if (user) {
       res.status(status).json({

@@ -5,7 +5,7 @@ const morgan = require('morgan')
 const route = require('./src/routes/index.route')
 const bodyParser = require('body-parser')
 
-const port = 3000
+const port = 5000
 const app = express()
 
 app.use(cors())
@@ -24,5 +24,5 @@ app.get('/', (req, res) => {
 route(app)
 
 app.listen(port, () => {
-	console.log("App listenning at" + port )
+	console.log("App listenning at " + port )
 }) 

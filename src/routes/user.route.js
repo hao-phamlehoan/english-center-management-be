@@ -3,6 +3,7 @@ const router = express.Router()
 const userController = require('../controllers/user.controller')
 
 router.get('/all', userController.getAll)
+router.get('/teacher/all', userController.getTeacher)
 router.post('/getInfoByEmail', userController.getInfoByEmail)
 router.get('/:id', userController.get)
 router.delete('/:id', userController.delete)

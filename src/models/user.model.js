@@ -16,6 +16,17 @@ class User extends Model {
       })
   }
 
+  getTeacher(callback) {
+    this.query(
+      'SELECT ID, FullName, Sex, CID, CType FROM Class, Teacher, User WHERE Teacher.TID = ID AND Class.TID = Teacher.TID',
+    )
+      .then(results => callback(results))
+      .catch((error) => {
+        console.log(error)
+        callback(null)
+      })
+  }
+
   get(id, callback) {
     this.query(
       'SELECT * FROM User W WHERE W.ID = ?',
