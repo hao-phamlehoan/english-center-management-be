@@ -11,9 +11,21 @@ class UserController {
         })
     }
 
-    getTeacher(req, res) {
-        userModel.getTeacher((users) => {
-            userView.getTeacher(res, users)
+    getTeacherAll(req, res) {
+        userModel.getTeacherAll((users) => {
+            userView.getTeacherAll(res, users)
+        })
+    }
+
+    getManagerAll(req, res) {
+        userModel.getManagerAll((users) => {
+            userView.getManagerAll(res, users)
+        })
+    }
+
+    getTeacherClass(req, res) {
+        userModel.getTeacherClass((users) => {
+            userView.getTeacherClass(res, users)
         })
     }
 
