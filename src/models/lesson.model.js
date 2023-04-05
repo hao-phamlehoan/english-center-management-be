@@ -7,7 +7,34 @@ class Lesson extends Model {
 
   getAll(callback) {
     this.query(
-      'SELECT * FROM Buoi_hoc',
+      'SELECT * FROM Buoi_hoc ORDER BY Ngay',
+    )
+      .then(results => callback(results))
+      .catch((error) => {
+        console.log(error)
+        callback(null)
+      })
+  }
+  
+  getByTeacher(id, callback) {
+    this.query(
+      `Select ID, CID, Ngay, tiet_bat_dau, note, TID, ID_bu
+      From Buoi_hoc
+      Where CID in (Select CID From Class Where TID = ${id})
+      Order By Ngay`,
+    )
+      .then(results => callback(results))
+      .catch((error) => {
+        console.log(error)
+        callback(null)
+      })
+  }
+
+  getHoc(id, callback) {
+    this.query(
+      `Select *
+      From hoc
+      Where BID == ${id}`,
     )
       .then(results => callback(results))
       .catch((error) => {

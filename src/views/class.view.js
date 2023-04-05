@@ -18,6 +18,25 @@ class ClassView {
     }
   }
 
+  getLesson(res, classes) {
+    if (classes) {
+      res.status(200).json({
+        result: 'success',
+        message: 'get all classes',
+        size: classes.length,
+        classes: classes
+      })
+    }
+    else {
+      res.status(400).json({
+        result: 'fail',
+        message: 'wrong',
+        size: null,
+        classes: null
+      })
+    }
+  }
+
   getClassInClass(res, status, classes) {
     if (classes) {
       res.status(status).json({

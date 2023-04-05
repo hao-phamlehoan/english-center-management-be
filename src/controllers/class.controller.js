@@ -11,6 +11,13 @@ class ClassController {
         })
     }
 
+    getLesson(req, res) {
+        let id = req.params.id
+        classModel.getLesson(id, (classs) => {
+            classView.getLesson(res, classs)
+        })
+    }
+
     getClassInClass(req, res) {
         let id = Number.parseInt(req.params.id)
         console.log(id)

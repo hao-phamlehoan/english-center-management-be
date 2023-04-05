@@ -17,6 +17,13 @@ class UserController {
         })
     }
 
+    getTeacherByDay(req, res) {
+        let id = req.params.id
+        userModel.getTeacherByDay(id, (users) => {
+            userView.getTeacherByDay(res, users)
+        })
+    }
+
     getManagerAll(req, res) {
         userModel.getManagerAll((users) => {
             userView.getManagerAll(res, users)

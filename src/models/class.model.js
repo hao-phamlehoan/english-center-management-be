@@ -16,6 +16,18 @@ class Class extends Model {
       })
   }
 
+  getLesson(id, callback) {
+    this.query(
+      'Select * from Buoi_hoc Where CID = ? ORDER BY Ngay',
+      [id]
+    )
+      .then(results => callback(results))
+      .catch((error) => {
+        console.log(error)
+        callback(null)
+      })
+  }
+
   getClassInClass(id, callback) {
     this.query(
       'SELECT * FROM thuoc t, Student S WHERE t.CID = ? AND S.ID = t.SID',

@@ -18,6 +18,20 @@ class LessonController {
         })
     }
 
+    getByTeacher(req, res) {
+        let id = req.params.id
+        lessonModel.getByTeacher(id, (lessons) => {
+            lessonView.getByTeacher(res, lessons)
+        })
+    }
+
+    getHoc(req, res) {
+        let id = req.params.id
+        lessonModel.getHoc(id, (lessons) => {
+            lessonView.getHoc(res, lessons)
+        })
+    }
+
     // update(req, res) {
     //     let id = Number.parseInt(req.params.id)
     //     let editedLesson = req.body
