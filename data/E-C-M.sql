@@ -78,7 +78,7 @@ create table Buoi_hoc(
 -----------------------------------------
 create table thuoc(
 	CID					CHAR(6),
-    SInpmD					CHAR(6),
+    SID					CHAR(6),
     CONSTRAINT thuoc_pk PRIMARY KEY (CID, SID),
     FOREIGN KEY (CID) REFERENCES Class (CID) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (SID) REFERENCES Student (ID) ON DELETE CASCADE ON UPDATE CASCADE
