@@ -91,7 +91,7 @@ class Lesson extends Model {
                     note= '${newLesson.note ? newLesson.note : results[0].note}',
                     ID_bu= ${newLesson.ID_bu ? newLesson.ID_bu : results[0].ID_bu}
                     WHERE ID = ${id}`
-                    console.log(query)
+          console.log(query)
           this.query(query)
             .then(() => {
               callback(200, true, 'update success')
@@ -119,13 +119,62 @@ class Lesson extends Model {
                     TID= '${newLesson.TID ? newLesson.TID : 0}',
                     MID= '${newLesson.MID ? newLesson.MID : 0}',
                     Ngay= '${newLesson.Ngay ? newLesson.Ngay : ""}',
-                    status= '${newLesson.status ? newLesson.status : 'V'}',
+                    status= '${newLesson.status ? newLesson.status : 'N'}',
                     tiet_bat_dau= ${newLesson.tiet_bat_dau ? newLesson.tiet_bat_dau : 0},
                     so_tiet= ${newLesson.so_tiet ? newLesson.so_tiet : 0},
                     note= '${newLesson.note ? newLesson.note : ""}'
                     `
     console.log(query)
     this.query(query)
+      .then(() => callback(200, true, 'Create success'))
+      .catch((error) => {
+        if (error.includes('Duplicate entry'))
+          callback(400, false, 'Duplicate entry')
+        else
+          callback(400, false, 'something wrong happened, please try again')
+      })
+  }
+
+  updateHoc(BID, SID, newHoc, callback) {
+    this.query(
+      `SELECT * FROM hoc WHERE BID = ${BID} and SID=${SID}`,
+    )
+      .then(results => {
+        if (!BID || !SID || results.length === 0)
+          throw Error('invalid id')
+        else {
+          this.query(`UPDATE hoc SET ? where BID = ${BID} and SID=${SID}`,
+            {
+              note: newHoc.note ? newHoc.note : "",
+              status: newHoc.status ? newHoc.status : 'N'
+            })
+            .then(() => {
+              callback(200, true, 'update success')
+            })
+            .catch((error) => {
+              console.log(error)
+              callback(400, false, 'Something wrong happened, please try again')
+            })
+        }
+      })
+      .catch(error => {
+        console.log(error);
+        if (error.message === 'invalid id')
+          callback(404, false, error.message)
+        else
+          callback(400, false, 'Something wrong happened, please try again')
+      })
+  }
+
+  createHoc(newHoc, callback) {
+    this.query(`INSERT INTO hoc SET ?`,
+      {
+        BID: newHoc.BID,
+        SID: newHoc.SID,
+        note: newHoc.note,
+        status: newHoc.status ? newHoc.status : 'N'
+      }
+    )
       .then(() => callback(200, true, 'Create success'))
       .catch((error) => {
         if (error.includes('Duplicate entry'))
@@ -145,7 +194,7 @@ class Lesson extends Model {
           throw Error('invalid id')
         else
           return this.query(
-            'DELETE FROM Buoi_hoc WHERE ID = ?', 
+            'DELETE FROM Buoi_hoc WHERE ID = ?',
             [id],
           )
       })

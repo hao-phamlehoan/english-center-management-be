@@ -117,6 +117,22 @@ class Class extends Model {
           callback(400, false, 'something wrong happened, please try again')
       })
   }
+  AddStudent(newClass, callback) {
+      this.query(
+        'INSERT INTO thuoc SET ?',
+        {
+          CID: newClass.CID,
+          SID: newClass.SID
+        }
+      )
+      .then(() => callback(200, true, 'Create success'))
+      .catch((error) => {
+        if (error.includes('Duplicate entry'))
+          callback(400, false, 'Duplicate entry')
+        else
+          callback(400, false, 'something wrong happened, please try again')
+      })
+  }
 
   delete(id, callback) {
     this.query(

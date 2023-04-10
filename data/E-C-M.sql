@@ -64,7 +64,7 @@ create table Buoi_hoc(
     TID					CHAR(6),
     MID					CHAR(6),
     Ngay				Date,
-    status				char(1) check(status in ('V', 'T', 'C')), -- vang, tre, co mat
+    status				char(1) check(status in ('V', 'T', 'C', 'N')), -- vang, tre, co mat
     tiet_bat_dau		int check(tiet_bat_dau > 1 and tiet_bat_dau < 12),
     so_tiet				int check(so_tiet > 0 and so_tiet < 4),
     note				varchar(300),
@@ -88,7 +88,7 @@ create table hoc(
     SID					CHAR(6),
     CONSTRAINT thuoc_pk PRIMARY KEY (BID, SID),
     note				varchar(50),
-    status				char(1) check(status in ('V', 'T', 'C')), -- vang, tre, co mat
+    status				char(1) check(status in ('V', 'T', 'C', 'N')), -- vang, tre, co mat
     FOREIGN KEY (BID) REFERENCES Buoi_hoc (ID) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (SID) REFERENCES Student (ID) ON DELETE CASCADE ON UPDATE CASCADE
 );

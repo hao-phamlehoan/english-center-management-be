@@ -85,6 +85,12 @@ class ClassView {
       message,
     })
   }
+  AddStudent(res, status, result, message) {
+    res.status(status).json({
+      result: result ? 'success' : 'fail',
+      message,
+    })
+  }
 
   delete(res, status, result, message) {
     res.status(status).json({

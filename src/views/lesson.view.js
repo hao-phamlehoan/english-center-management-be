@@ -104,6 +104,19 @@ class LessonView {
       message,
     })
   }
+  updateHoc(res, status, result, message) {
+    res.status(status).json({
+      result: result ? 'success' : 'fail',
+      message
+    })
+  }
+
+  createHoc(res, status, result, message) {
+    res.status(status).json({
+      result: result ? 'success' : 'fail',
+      message,
+    })
+  }
 
   delete(res, status, result, message) {
     res.status(status).json({

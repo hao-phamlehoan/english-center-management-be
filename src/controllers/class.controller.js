@@ -48,6 +48,12 @@ class ClassController {
             classView.create(res, status, result, message)
         })
     }
+    AddStudent(req, res) {
+        let newClass = req.body
+        classModel.AddStudent(newClass, (status, result, message) => {
+            classView.AddStudent(res, status, result, message)
+        })
+    }
 
     delete(req, res) {
         let id = Number.parseInt(req.params.id)
