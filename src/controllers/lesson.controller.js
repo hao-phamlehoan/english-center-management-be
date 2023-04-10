@@ -25,6 +25,14 @@ class LessonController {
         })
     }
 
+    getDay(req, res) {
+        let day = req.params.day
+        console.log(day)
+        lessonModel.getDay(day, (lessons) => {
+            lessonView.getDay(res, lessons)
+        })
+    }
+
     getHoc(req, res) {
         let id = req.params.id
         lessonModel.getHoc(id, (lessons) => {
@@ -32,21 +40,21 @@ class LessonController {
         })
     }
 
-    // update(req, res) {
-    //     let id = Number.parseInt(req.params.id)
-    //     let editedLesson = req.body
+    update(req, res) {
+        let id = (req.params.id)
+        let editedLesson = req.body
 
-    //     lessonModel.update(id, editedLesson, (status, result, message) => {
-    //         lessonView.update(res, status, result, message)
-    //     })
-    // }
+        lessonModel.update(id, editedLesson, (status, result, message) => {
+            lessonView.update(res, status, result, message)
+        })
+    }
 
-    // create(req, res) {
-    //     let newLesson = req.body
-    //     lessonModel.create(newLesson, (status, result, message) => {
-    //         lessonView.create(res, status, result, message)
-    //     })
-    // }
+    create(req, res) {
+        let newLesson = req.body
+        lessonModel.create(newLesson, (status, result, message) => {
+            lessonView.create(res, status, result, message)
+        })
+    }
 
     delete(req, res) {
         let id = Number.parseInt(req.params.id)

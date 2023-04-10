@@ -37,6 +37,25 @@ class LessonView {
     }
   }
 
+  getDay(res, lessons) {
+    if (lessons) {
+      res.status(200).json({
+        result: 'success',
+        message: 'get all lessons',
+        size: lessons.length,
+        lessons: lessons
+      })
+    }
+    else {
+      res.status(400).json({
+        result: 'fail',
+        message: 'wrong',
+        size: null,
+        lessons: null
+      })
+    }
+  }
+
   getHoc(res, lessons) {
     if (lessons) {
       res.status(200).json({
@@ -72,19 +91,19 @@ class LessonView {
     }
   }
 
-  // update(res, status, result, message) {
-  //   res.status(status).json({
-  //     result: result ? 'success' : 'fail',
-  //     message
-  //   })
-  // }
+  update(res, status, result, message) {
+    res.status(status).json({
+      result: result ? 'success' : 'fail',
+      message
+    })
+  }
 
-  // create(res, status, result, message) {
-  //   res.status(status).json({
-  //     result: result ? 'success' : 'fail',
-  //     message,
-  //   })
-  // }
+  create(res, status, result, message) {
+    res.status(status).json({
+      result: result ? 'success' : 'fail',
+      message,
+    })
+  }
 
   delete(res, status, result, message) {
     res.status(status).json({
