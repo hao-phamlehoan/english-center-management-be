@@ -84,7 +84,6 @@ class Lesson extends Model {
                     RID= '${newLesson.RID ? newLesson.RID : results[0].RID}',
                     TID= '${newLesson.TID ? newLesson.TID : results[0].TID}',
                     MID= '${newLesson.MID ? newLesson.MID : results[0].MID}',
-                    Ngay= '${newLesson.Ngay ? newLesson.Ngay : results[0].Ngay}',
                     status= '${newLesson.status ? newLesson.status : results[0].status}',
                     tiet_bat_dau= ${newLesson.tiet_bat_dau ? newLesson.tiet_bat_dau : results[0].tiet_bat_dau},
                     so_tiet= ${newLesson.so_tiet ? newLesson.so_tiet : results[0].so_tiet},
