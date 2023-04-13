@@ -1,3 +1,4 @@
+const formatDate = require('../utils/formatDate')
 const Model = require('./model')
 
 class Lesson extends Model {
@@ -47,7 +48,21 @@ class Lesson extends Model {
     this.query(
       `Select *
       From hoc
-      Where BID == ${id}`,
+      Where BID = ${id}`,
+    )
+      .then(results => callback(results))
+      .catch((error) => {
+        console.log(error)
+        callback(null)
+      })
+  }
+
+  getStudentPresent(callback) {
+    this.query(
+      `Select BID, Count(*) AS "Present"
+      From hoc
+      Where status = 'C' or status = 'T'
+      Group By BID`,
     )
       .then(results => callback(results))
       .catch((error) => {
@@ -79,6 +94,8 @@ class Lesson extends Model {
         if (!id || results.length === 0)
           throw Error('invalid id')
         else {
+          results[0].Ngay = formatDate(new Date(results[0].Ngay))
+          console.log(results[0])
           let query = `UPDATE Buoi_hoc SET 
                     CID= '${newLesson.CID ? newLesson.CID : results[0].CID}',
                     RID= '${newLesson.RID ? newLesson.RID : results[0].RID}',
@@ -90,7 +107,6 @@ class Lesson extends Model {
                     note= '${newLesson.note ? newLesson.note : results[0].note}',
                     ID_bu= ${newLesson.ID_bu ? newLesson.ID_bu : results[0].ID_bu}
                     WHERE ID = ${id}`
-          console.log(query)
           this.query(query)
             .then(() => {
               callback(200, true, 'update success')

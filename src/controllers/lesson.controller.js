@@ -40,6 +40,14 @@ class LessonController {
         })
     }
 
+    getStudentPresent(req, res) {
+        console.log("ok")
+        lessonModel.getStudentPresent((lessons) => {
+            lessonView.getStudentPresent(res, lessons)
+        })
+    }
+
+
     update(req, res) {
         let id = (req.params.id)
         let editedLesson = req.body
