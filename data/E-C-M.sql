@@ -1,10 +1,6 @@
 create database ECM;
 use ECM;
 
-DROP TABLE IF EXISTS User;
-DROP TABLE IF EXISTS Admin;
-DROP TABLE IF EXISTS Manager;
-DROP TABLE IF EXISTS Teacher;
 CREATE TABLE User(
 	ID                  CHAR(6) primary key,
     SSN                 VARCHAR(12) NOT NULL unique,
@@ -15,7 +11,8 @@ CREATE TABLE User(
     Bdate				DATE,
     Address				varchar(50),
     Username            VARCHAR(50) NOT NULL unique,
-    Pass                VARCHAR(50) NOT NULL
+    Pass                VARCHAR(50) NOT NULL,
+    refreshToken        VARCHAR(256)
 );
 CREATE TABLE Admin(
 	AID                  CHAR(6) primary key,
