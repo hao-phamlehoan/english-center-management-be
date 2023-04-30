@@ -28,14 +28,34 @@ class AccountModel extends Model {
           throw Error('password is not correct')
         else
           return this.query(
-            'SELECT * FROM User WHERE Username = ?',
+            'SELECT * FROM User, Admin WHERE Username = ? AND User.ID = Admin.AID',
             [Username]
           )
+            .then(res => {
+              if (res.length !== 0) {
+                res[0].Role = 'Admin'
+                return res
+              }
+              return this.query(
+                'SELECT * FROM User, Manager WHERE Username = ? AND User.ID = MID',
+                [Username]
+              )
+                .then (res => {
+                  if (res.length !== 0) {
+                    res[0].Role = 'Manager'
+                    return res
+                  }
+                  return this.query(
+                    'SELECT * FROM User, Teacher WHERE Username = ? AND User.ID = TID',
+                    [Username]
+                  )
+                })
+            })
       })
       .then(results => {
         console.log(results)
         let accessToken, refreshToken
-        let role = results[0].Role
+        let role = results[0].Role ? results[0].Role : "Teacher"
         console.log(role)
         accessToken = jwt.sign(
           {
@@ -60,7 +80,7 @@ class AccountModel extends Model {
           'UPDATE User SET refreshToken = ? WHERE Username = ?',
           [refreshToken, Username]
         )
-          .then(() => callback(200, true, 'login success', accessToken, refreshToken, role))
+          .then(() => callback(200, true, 'login success', results[0].ID, accessToken, refreshToken, role))
           .catch(() => callback(400, false, '2 something were wrong, please try again'))
       })
       .catch(error => {

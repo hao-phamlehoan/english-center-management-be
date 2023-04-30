@@ -9,8 +9,8 @@ class AuthController {
         let username = req.body.username
         let password = req.body.password
 
-        accountModel.login(username, password, (status, result, message, accessToken, refreshToken, role) => {
-            authView.login(res, status, result, message, accessToken, refreshToken, role)
+        accountModel.login(username, password, (status, result, message, ID, accessToken, refreshToken, role) => {
+            authView.login(res, status, result, message, ID, accessToken, refreshToken, role)
         })
     }
 
