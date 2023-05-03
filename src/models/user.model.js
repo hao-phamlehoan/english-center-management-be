@@ -115,7 +115,7 @@ class User extends Model {
           Bdate: newUser.Bdate,
           Address: newUser.Address,
           UserName: newUser.UserName,
-          Pass: hash
+          Pass: newUser.password
         }
       ))
       .then(results => this.query(

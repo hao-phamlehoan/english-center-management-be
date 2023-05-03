@@ -21,7 +21,7 @@ const verifyJWT = (req, res, next) => {
                         message: 'unauthorization'
                     })
                 else {
-                    req.username = decoded.username
+                    req.Username = decoded.Username
                     req.role = decoded.role
                         next()
                 }

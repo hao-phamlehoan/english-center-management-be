@@ -56,6 +56,7 @@ class LessonController {
             lessonView.update(res, status, result, message)
         })
     }
+
     updateHoc(req, res) {
         let id = (req.params.id).split('-')
         let BID = id[0]
@@ -73,6 +74,7 @@ class LessonController {
             lessonView.create(res, status, result, message)
         })
     }
+    
     createHoc(req, res) {
         let newLesson = req.body
         lessonModel.createHoc(newLesson, (status, result, message) => {

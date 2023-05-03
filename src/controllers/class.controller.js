@@ -48,6 +48,7 @@ class ClassController {
             classView.create(res, status, result, message)
         })
     }
+    
     AddStudent(req, res) {
         let newClass = req.body
         classModel.AddStudent(newClass, (status, result, message) => {

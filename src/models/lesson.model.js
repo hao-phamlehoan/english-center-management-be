@@ -104,9 +104,10 @@ class Lesson extends Model {
                     status= '${newLesson.status ? newLesson.status : results[0].status}',
                     tiet_bat_dau= ${newLesson.tiet_bat_dau ? newLesson.tiet_bat_dau : results[0].tiet_bat_dau},
                     so_tiet= ${newLesson.so_tiet ? newLesson.so_tiet : results[0].so_tiet},
-                    note= '${newLesson.note ? newLesson.note : results[0].note}',
-                    ID_bu= ${newLesson.ID_bu ? newLesson.ID_bu : results[0].ID_bu}
+                    note= '${newLesson.note ? newLesson.note : results[0].note}'
+                    ${newLesson.ID_bu ? `,ID_bu='${newLesson.ID_bu}'` : ""}
                     WHERE ID = ${id}`
+          console.log(query)
           this.query(query)
             .then(() => {
               callback(200, true, 'update success')
@@ -137,7 +138,8 @@ class Lesson extends Model {
                     status= '${newLesson.status ? newLesson.status : 'N'}',
                     tiet_bat_dau= ${newLesson.tiet_bat_dau ? newLesson.tiet_bat_dau : 0},
                     so_tiet= ${newLesson.so_tiet ? newLesson.so_tiet : 0},
-                    note= '${newLesson.note ? newLesson.note : ""}'
+                    note= '${newLesson.note ? newLesson.note : ""}',
+                    ID_bu= ${newLesson.ID_bu ? `'${newLesson.ID_bu}'` : NULL}
                     `
     console.log(query)
     this.query(query)
