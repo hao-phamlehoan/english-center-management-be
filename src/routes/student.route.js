@@ -3,6 +3,7 @@ const router = express.Router()
 const studentController = require('../controllers/student.controller')
 
 router.get('/all', studentController.getAll)
+router.get('/last', studentController.getLast)
 router.get('/:id', studentController.get)
 router.get('/class/:id', studentController.getStudentInClass)
 router.delete('/:id', studentController.delete)

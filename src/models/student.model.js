@@ -43,6 +43,19 @@ class Student extends Model {
       })
       .catch(() => callback(404, null))
   }
+  
+  getLast(callback) {
+    this.query(
+      'SELECT * FROM Student ORDER BY ID DESC LIMIT 1'
+    )
+      .then(results => {
+        if (results.length === 0)
+          callback(404, null)
+        else
+          callback(200, results[0])
+      })
+      .catch(() => callback(404, null))
+  }
 
   update(id, editedStudent, callback) {
     this.query(

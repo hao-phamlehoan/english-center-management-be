@@ -28,6 +28,20 @@ class Class extends Model {
       })
   }
 
+  getClassInClassNot(id, callback) {
+    this.query(
+      'SELECT * FROM thuoc t, Student S WHERE t.CID != ? AND S.ID = t.SID',
+      [id]
+    )
+      .then(results => {
+        if (results.length === 0)
+          callback(405, "size = 0") 
+        else
+          callback(200, results)
+      })
+      .catch(() => callback(404, null))
+  }
+
   getClassInClass(id, callback) {
     this.query(
       'SELECT * FROM thuoc t, Student S WHERE t.CID = ? AND S.ID = t.SID',

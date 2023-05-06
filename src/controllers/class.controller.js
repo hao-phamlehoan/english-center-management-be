@@ -25,6 +25,12 @@ class ClassController {
             classView.getClassInClass(res, status, classs)
         })
     }
+    getClassInClassNot(req, res) {
+        let id = Number.parseInt(req.params.id)
+        classModel.getClassInClassNot(id, (status, classs) => {
+            classView.getClassInClassNot(res, status, classs)
+        })
+    }
 
     get(req, res) {
         let id = Number.parseInt(req.params.id)

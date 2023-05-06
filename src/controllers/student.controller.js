@@ -25,6 +25,13 @@ class StudentController {
         })
     }
 
+    getLast(req, res) {
+        studentModel.getLast((status, student) => {
+            studentView.getLast(res, status, student)
+        })
+    }
+    
+
     update(req, res) {
         let id = Number.parseInt(req.params.id)
         let editedStudent = req.body

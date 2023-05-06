@@ -53,6 +53,22 @@ class StudentView {
     }
   }
 
+  getLast(res, status, student) {
+    if (student) {
+      res.status(status).json({
+        result: 'success',
+        message: 'get student by id',
+        student: student
+      })
+    }
+    else {
+      res.status(status).json({
+        result: 'fail',
+        message: 'id not exist, please check again',
+      })
+    }
+  }
+
   update(res, status, result, message) {
     res.status(status).json({
       result: result ? 'success' : 'fail',

@@ -4,6 +4,7 @@ const classController = require('../controllers/class.controller')
 
 router.get('/all', classController.getAll)
 router.get('/:id', classController.get)
+router.get('/student/not/:id', classController.getClassInClassNot)
 router.get('/student/:id', classController.getClassInClass)
 router.post('/student/create', classController.AddStudent)
 router.delete('/:id', classController.delete)

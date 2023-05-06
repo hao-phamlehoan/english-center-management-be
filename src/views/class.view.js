@@ -56,6 +56,25 @@ class ClassView {
     }
   }
 
+  getClassInClassNot(res, status, classes) {
+    if (classes) {
+      res.status(status).json({
+        result: 'success',
+        message: 'get all class in class',
+        size: classes.length,
+        classes: classes
+      })
+    }
+    else {
+      res.status(status).json({
+        result: 'fail',
+        message: 'wrong',
+        size: null,
+        classes: null
+      })
+    }
+  }
+
   get(res, status, Class) {
     if (Class) {
       res.status(status).json({
