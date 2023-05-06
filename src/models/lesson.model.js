@@ -137,7 +137,8 @@ class Lesson extends Model {
                     status= '${newLesson.status ? newLesson.status : 'N'}',
                     tiet_bat_dau= ${newLesson.tiet_bat_dau ? newLesson.tiet_bat_dau : 0},
                     so_tiet= ${newLesson.so_tiet ? newLesson.so_tiet : 0},
-                    note= '${newLesson.note ? newLesson.note : ""}'
+                    note= '${newLesson.note ? newLesson.note : ""}',
+                    ID_bu= ${newLesson.ID_bu ? newLesson.ID_bu : null}
                     `
     console.log(query)
     this.query(query)

@@ -29,7 +29,7 @@ class User extends Model {
 
   getTeacherByDay(id, callback) {
     this.query(
-      `Select u.ID as ID, FullName, Sex, c.CID as CID, CType, tiet_bat_dau, so_tiet, Name, NumStudent
+      `Select u.ID as ID, FullName, Sex, c.CID as CID, CType, tiet_bat_dau, so_tiet, Name, NumStudent, b.ID as BID, b.status as status
       From Buoi_hoc b, Room r, User u, Class c
       Where b.TID = u.ID AND r.RID = b.RID AND c.CID = b.CID AND b.Ngay = ?
       Order by tiet_bat_dau`,
