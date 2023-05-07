@@ -41,7 +41,7 @@ class User extends Model {
         callback(null)
       })
   }
-  
+
   getManagerAll(callback) {
     this.query(
       'SELECT * FROM Manager, User WHERE MID = ID',
@@ -78,6 +78,19 @@ class User extends Model {
       .catch(() => callback(404, null))
   }
 
+  getLast(callback) {
+    this.query(
+      'SELECT * FROM User ORDER BY ID Desc LIMIT 1'
+    )
+      .then(results => {
+        if (results.length === 0)
+          callback(404, null)
+        else
+          callback(200, results[0])
+      })
+      .catch(() => callback(404, null))
+  }
+
   getInfoByEmail(email, callback) {
     this.query(
       'SELECT * FROM User WHERE Email=?',
@@ -98,32 +111,34 @@ class User extends Model {
   }
 
   update(id, editedUser, callback) {
-    
+
   }
 
   create(newUser, callback) {
-    bcrypt.hash(newUser.password, 7)
-      .then(hash => this.query(
-        'INSERT INTO User SET ?',
-        {
-          ID: newUser.ID,
-          SSN: newUser.SSN,
-          Email: newUser.Email,
-          Phone: newUser.Phone,
-          FullName: newUser.FullName,
-          Sex: newUser.Sex,
-          Bdate: newUser.Bdate,
-          Address: newUser.Address,
-          UserName: newUser.UserName,
-          Pass: newUser.password
-        }
-      ))
-      .then(results => this.query(
-        'INSERT INTO ?  VALUES (?)',
-        [newUser.Role, results.insertId]
-      ))
-      .then(() => callback(200, true, 'Create success', newUser.password))
+    this.query(
+      'INSERT INTO User SET ?',
+      {
+        ID: newUser.ID,
+        SSN: newUser.SSN,
+        Email: newUser.Email,
+        Phone: newUser.Phone,
+        FullName: newUser.FullName,
+        Sex: newUser.Sex,
+        Bdate: newUser.Bdate,
+        Address: newUser.Address,
+        Username: newUser.UserName,
+        Pass: newUser.Pass
+      }
+    )
+      .then(results => {
+        this.query(
+          `INSERT INTO Teacher  VALUES (?)`,
+          [newUser.ID]
+        )
+          .then(() => callback(200, true, 'Create success', newUser.password))
+      })
       .catch((error) => {
+        console.log(error)
         if (error.includes('Duplicate entry'))
           callback(400, false, 'email has been used', undefined)
         else

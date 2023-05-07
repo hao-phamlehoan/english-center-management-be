@@ -109,6 +109,22 @@ class UserView {
       })
     }
   }
+  
+  getLast(res, status, user) {
+    if (user) {
+      res.status(status).json({
+        result: 'success',
+        message: 'get user by id',
+        user: user
+      })
+    }
+    else {
+      res.status(status).json({
+        result: 'fail',
+        message: 'id not exist, please check again',
+      })
+    }
+  }
 
   getInfoByEmail(res, status, user, message) {
     if (user) {

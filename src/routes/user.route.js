@@ -3,6 +3,8 @@ const router = express.Router()
 const userController = require('../controllers/user.controller')
 
 router.get('/all', userController.getAll)
+router.get('/last', userController.getLast)
+
 router.get('/teacher/all', userController.getTeacherAll)
 router.get('/manager/all', userController.getManagerAll)
 router.get('/teacherClass/all', userController.getTeacherClass)

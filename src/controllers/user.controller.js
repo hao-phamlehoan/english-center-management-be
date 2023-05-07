@@ -43,6 +43,12 @@ class UserController {
         })
     }
 
+    getLast(req, res) {
+        userModel.getLast( (status, user) => {
+            userView.getLast(res, status, user)
+        })
+    }
+
     getInfoByEmail(req, res) {
         let email = req.body.Email
         userModel.getInfoByEmail(email, (status, user, message) => {
